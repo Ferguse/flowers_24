@@ -1,0 +1,49 @@
+.why-we {
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/header_bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+  padding: 2rem 5%;
+
+  &::before {
+    top:0;
+    left: 0;
+    @include pseudo(100%, 100%);
+    background: rgba(0,0,0,.5);
+    z-index: -1;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0 4rem;
+  }
+
+  &__item {
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #ffffff;
+    position: relative;
+    @include phone {
+      font-size: 2.5rem;
+    }
+
+    &::after {
+      @include pseudo(2rem, 1rem);
+      border-right: 1px solid lightgreen;
+      border-left: 1px solid transparent;
+      border-top: 1px solid lightgreen;
+      border-bottom: 1px solid transparent;
+      left: -2rem;
+      top: 1rem;
+      transform: rotate(135deg);
+      @include phone {
+        top: 3rem;
+      }
+    }
+  }
+}

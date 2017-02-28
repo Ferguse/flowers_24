@@ -1,0 +1,13 @@
+.order {
+  padding: 2rem 5%;
+
+  .subtite {
+    text-align: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color_text;
+    font-size: 1.5rem;
+  }
+}

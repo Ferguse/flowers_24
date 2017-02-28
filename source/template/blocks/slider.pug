@@ -1,0 +1,21 @@
+-
+    var compositions = [
+    'assets/img/svadba.jpg',
+    'assets/img/prasdnik.jpeg',
+    'assets/img/birthday.jpg',
+    'assets/img/valentin.jpg',
+    'assets/img/roses.png',
+    'assets/img/tulpan.jpeg',
+    'assets/img/crisantema.jpg',
+    'assets/img/gorshechniy.jpg',
+    'assets/img/lilia.jpg'
+    ]
+
+section.slider
+    .slider__wrap
+        .left
+        .right
+        ul.slider__list
+            for item in compositions
+                li.slider__item
+                    .slider__img(style="background-image: url('" + item + "')")

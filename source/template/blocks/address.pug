@@ -1,0 +1,29 @@
+-
+    var saransk = [
+    ['Веселовского, 40а','/anyutini.html'],
+    ['Веселовского, 64','/magnolia.html'],
+    ['Веселовского, 22','/veselovskogo.html'],
+    ['Коваленко, 12','/kovalenko.html'],
+    ['Косарева, 13б','/eldorado.html'],
+    ['Косарева, 104','/kosareva.html'],
+    ['Полежаева, 46','/polejzaeva.html'],
+    ['Гагарина, 12','/gagarina.html'],
+    ['пр. 50 лет Октября, 46','/chaika.html']
+    ]
+-
+    var rusaevka = [
+    ['Ленина, 55','/lenina.html'],
+    ['Маяковского, 33','kosmos.html']
+    ]
+
+section.address
+    h2.title Наши магазины в Саранске:
+        ul.address__list
+            for item in saransk
+                li.adress__item
+                    a(href=item[1]).address__link.text-white=item[0]
+    h2.title Наши магазины в Рузаевке:
+        ul.address__list
+            for item in rusaevka
+                li.adress__item
+                    a(href=item[1]).address__link.text-white=item[0]

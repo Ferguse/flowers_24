@@ -1,0 +1,12 @@
+extends ../../_template
+
+block variables
+    - var title = 'Flowers'
+    - var subtitle = 'tulpan'
+block content
+    include ../../blocks/header
+    main
+        include ../../blocks/flowers
+        include ../../blocks/why_we
+        include ../../blocks/order
+    include ../../blocks/footer

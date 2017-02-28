@@ -1,0 +1,8 @@
+section.slider
+    .slider__wrap
+        .left
+        .right
+        ul.slider__list
+            -for (var i in flavours[random].list)
+                li.slider__item
+                    .slider__img(style="background-image: url('" + flavours[random].list[i] + "')")

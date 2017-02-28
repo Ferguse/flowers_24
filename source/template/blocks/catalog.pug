@@ -1,0 +1,17 @@
+-
+    var arrCatalog = [
+        ['/flowers/roses.html','/assets/img/roses.png','РОЗЫ'],
+        ['/flowers/chrysantem.html','/assets/img/crisantema.jpg', 'ХРИЗАНТЕМЫ'],
+        ['/flowers/tulpan.html','/assets/img/tulpan.jpeg', 'ТЮЛЬПАНЫ'],
+        ['/flowers/gorshki.html','/assets/img/gorshechniy.jpg','ГОРШЕЧНЫЕ'],
+        ['/flowers/other.html','/assets/img/lilia.jpg', 'ДРУГИЕ']
+    ]
+.grid#about
+    .grid__list
+        for item in arrCatalog
+            .grid__item(style='background-image:url(' + item[1] + ')')
+                a(href=item[0]).grid__link
+                    //img(alt="wedding" src=item[1]).grid__img
+                    .grid__description
+                        p.title #{item[2]}
+                        a(href="#").grid__more Смотреть

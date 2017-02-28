@@ -1,0 +1,48 @@
+.footer {
+  width: 90%;
+  padding: 1rem 5%;
+  background: url("../img/header_bg.jpg") no-repeat 0 100%;
+  background-size: cover;
+  position: relative;
+  z-index:1;
+
+  &::before {
+    @include pseudo(100%, 100%);
+    top:0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: -1;
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 50%;
+  }
+  &__link {
+    text-decoration: none;;
+    color: $color_bg;
+    border-bottom: 1px dashed $color_bg;
+  }
+  &__bottom {
+    color: #eee;
+    text-align: center;
+  }
+  &__key {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: url("../img/key.png") no-repeat 50% 50%;
+    background-size: cover;
+    opacity: .3;
+    transition: 1s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+}

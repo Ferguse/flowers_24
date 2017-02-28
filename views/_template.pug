@@ -1,0 +1,27 @@
+block variables
+
+doctype html
+html(lang='ru-RU')
+  head
+    meta(charset="utf-8")
+    title #{title}
+    meta(content="" name="author")
+    meta(content="" name="description")
+    meta(content="" name="keywords")
+    meta(content="width=device-width, initial-scale=1" name="viewport")
+    meta(content="ie=edge" http-equiv="x-ua-compatible")
+
+    //- favicon block start
+    //- favicon block end
+    link(href="http://allfont.ru/allfont.css?fonts=roboto-thin" rel="stylesheet" type="text/css")
+    link(rel='stylesheet' href='/stylesheets/foundation.css')
+    link(rel='stylesheet' href='/stylesheets/app.css')
+    script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript")
+    //script(src='/assets/js/foundation.js' defer)
+    script(src='/js/app.js' defer)
+    <!--[if lt IE 9]>
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+    <![endif]-->
+
+  body
+    block content

@@ -1,0 +1,45 @@
+.admin
+    h1.title ПАНЕЛЬ АДМИНИСТРИРОВАНИЯ
+    section.tab.tab--active
+        .admin__wrap
+            .edit
+                h2.subtitle Создание новой категории
+                form(action="/admin/newCategory" method="POST" name="new-category" enctype="mulipart/formdata").admin__form
+                    input#category__name.admin__input(type="text" placeholder="Название категории")
+                    label.admin__file(for="category__file" ) Выбрать файл
+                    input#category__file(type="file")
+                    a#category__create.btn(href="#") Создать категорию
+                h2.subtitle Добавить фото в категорию
+                form.admin__form
+                    .admin__radio-wrap
+                        -for(var k in flowers)
+                            label.admin__checkbox.text &nbsp; #{flowers[k].name}
+                                input.admin__radio(type="radio" name="categories")
+                    label.admin__file(for="category__file" ) Выбрать файл
+                    input(type="file")
+                    input.btn(type="submit" value="Добавить фото")
+            .preview
+                h2.subtitle Опубликованные категории
+                -for(var i in flowers)
+                    .box
+                        h3.text=flowers[i].name
+                        .box__wrap
+                            ul.box__list
+                                -for(var j in flowers[i].list)
+                                    -var del = flowers[i].list[j][0]
+                                        li.box__item
+                                            .box__img(style='background-image:url(' + flowers[i].list[j][0] + ')')
+                                            button.box__delete(data-link=del data-category=flowers[i].name) Удалить
+
+
+        section.composition.tab
+            .edit
+            .preview
+        section.shops.tab
+            .edit
+            .preview
+        section.about.tab
+            .edit
+            .preview
+
+

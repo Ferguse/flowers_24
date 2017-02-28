@@ -1,0 +1,6 @@
+.grid
+    .grid__list
+        for item in flowers.list
+            .grid__item(style='background-image:url(' + item[0] + ')')
+                -if(item[1])
+                    .grid__name=item[1]

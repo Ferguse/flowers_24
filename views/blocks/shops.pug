@@ -1,0 +1,11 @@
+.grid
+    .grid__list
+        -for (var i in shops)
+            .grid__item(style="background-image: url(" + shops[i].ava + ")")
+                a(href=shops[i].link).grid__link
+                    .grid__img
+                    .grid__description
+                        p=shops[i].title
+                        a(href=shops[i].link).grid__more.btn Подробнее...
+
+include address

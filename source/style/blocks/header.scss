@@ -1,0 +1,222 @@
+/**
+*
+Стили для блока header
+Зависит с файлом ../common/common
+*
+*/
+
+.header {
+  width: 100%;
+  min-height: 30rem;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/header_bg.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+
+  &::before {
+    @include pseudo(100%, 100%);
+    background: rgba(0,0,0,.5);
+  }
+
+  &__home {
+    position: absolute;
+    color: $color_bg;
+    top:1rem;
+    left: 3rem;
+    font-size: 1rem;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    cursor: pointer;
+
+    &__link {
+      color: #eeeeee;
+      cursor: pointer;
+      background: url("../img/icons/home.svg"),
+      linear-gradient(to top left, rgba(0,100,0,.5), rgba(255,255,0,.5), rgba(0,100,0,.5));
+      background-size: cover;
+      text-decoration: none;
+      width: 3rem;
+      height: 3rem;
+      border-radius: .4rem;
+      display: inline-block;
+      position: fixed;
+      z-index: 100;
+      opacity: .8;
+
+      &:hover {
+        transition: .5s;
+        opacity: 1;
+      }
+    }
+  }
+}
+.index {
+  min-height: 100vh;
+}
+/**
+*
+Стили для верхней части header
+*
+*/
+
+.header__top {
+  position: relative;
+
+  .line-top,
+  .line-center,
+  .line-bottom {
+    transition: transform .5s linear;
+    position: absolute;
+  }
+
+  .tel {
+    position: absolute;
+    color: $color_bg;
+    top:2rem;
+    right: 2rem;
+    font-size: 1.1rem;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    letter-spacing: .4rem;
+    @include phone {
+      font-size: 3rem;
+    }
+  }
+}
+
+/**
+*
+Стили для центральной плашки
+*
+*/
+.header__center {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  min-height: 5rem;
+  max-height: 9rem;
+  margin: auto;
+  position: absolute;
+  padding: 3rem 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @keyframes header-animate {
+    0% {
+      left:-200%;
+    }
+    80% {
+      left:3rem;
+    }
+    90% {
+      left:-1rem;
+    }
+    100% {
+      left: 0rem;
+    }
+  }
+
+  .header__title {
+    left:-200%;
+    white-space: nowrap;
+    font-size: 3rem;
+    letter-spacing: .3rem;
+    margin: 0 5%;
+    position: absolute;
+    animation: 3s header-animate 1s ease-in;
+    animation-fill-mode: forwards;
+
+    @include phone {
+      font-size: 3rem;
+    }
+  }
+
+  .main__title {
+    color: #ffffff;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 3rem;
+    margin: 0;
+  }
+  .header__subtitle {
+    color: #ffffff;
+    position: absolute;
+    font-size: 1rem;
+    left: -200%;
+    margin: 3.5rem 5%;
+    animation: 2.9s header-animate 1s ease-in;
+    animation-fill-mode: forwards;
+  }
+}
+
+/**
+*
+Стили для nav
+*
+*/
+
+.nav {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: rgba(0,100,0,.8);
+  }
+
+  &__item {
+    cursor: pointer;
+    height: 100%;
+    width: 25%;
+    height: 3rem;
+    @include phone {
+      height: 10rem;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    color: rgba(255,255,255,.9);
+    background: rgba(255,255,255,.5);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+
+    @include phone {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: rgba(255,255,255,.8);
+      color: rgba(0,0,0,.9);
+      transition: .5s;
+    }
+
+    &--active {
+      color: rgba(0,0,0,.9);
+      background: rgba(255,255,255,.4);
+    }
+  }
+}
+
+.nav--fixed {
+  position: fixed;
+  top:0;
+  height: 3rem;
+  z-index:100;
+}

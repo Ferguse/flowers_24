@@ -1,0 +1,17 @@
+html {
+  @include bigScreen () {
+    font-size: 20px;
+  }
+  @include desctop () {
+    font-size: 16px;
+  }
+  @include laptop () {
+    font-size: 15px;
+  }
+  @include tablet () {
+    font-size: 10px;
+  }
+  @include phone () {
+    font-size: 10px;
+  }
+}

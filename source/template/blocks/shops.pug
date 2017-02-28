@@ -1,0 +1,69 @@
+-
+    var arrShops= [
+        {
+            'name':'Веселовского, 40а',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/anyutini.html'
+        },
+        {
+            'name':'Веселовского, 64',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/magnolia.html'
+        },
+        {
+            'name':'Веселовского, 22',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/veselovskogo.html'
+        },
+        {
+            'name':'Косарева, 13б',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/dionis.html'
+        },
+        {
+            'name':'Косарева, 104',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/nevod.html'
+        },
+        {
+            'name':'Полежаева, 84',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/polejzaeva.html'
+        },
+        {
+            'name':'Гагарина, 13',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/gagarina.html'
+        },
+        {
+            'name':'пр. 50 лет Октября, 56',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/chaika.html'
+        },
+        {
+            'name':'Рузаевка, Ленина, 55',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/lenina.html'
+        },
+        {
+            'name':'Рузаевка, Маяковского, 33',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/kosmos.html'
+        },
+        {
+            'name':'Коваленко, 12',
+            'img':'/assets/img/polej.jpg',
+            'link':'/shops/kovalenko.html'
+        }
+    ]
+.grid
+    .grid__list
+        for item in arrShops
+            .grid__item(style="background-image: url('/assets/img/polej.jpg')")
+                a(href=item.link).grid__link
+                    .grid__img
+                    .grid__description
+                        p=item.name
+                        a(href=item.link).grid__more Подробнее...
+
+include address

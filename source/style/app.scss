@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: 'Roboto Thin', fontAwesome, Arial, sans-serif;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  min-width: 300px;
+}
+
+main { flex: 1; }
+.tab { display: none; }
+.tab--active {
+  display: block;
+  width: 100%;
+}
+//common styles
+@import "common/common";
+@import 'common/fonts';
+@import 'blocks/header';
+@import "blocks/footer";
+
+
+// index styles
+@import "blocks/quadro";
+@import "blocks/grid";
+@import "blocks/why-we";
+@import "blocks/slider";
+@import "blocks/order";
+@import "blocks/about";
+@import "blocks/shop";
+@import "blocks/address";
+@import "blocks/admin";
+
+//media
+@import "common/media";

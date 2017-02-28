@@ -1,0 +1,15 @@
+-
+    var arrComposition = [
+        ['/assets/img/svadba.jpg','Свадебные букеты', '/composition/wedding.html'],
+        ['/assets/img/birthday.jpg','Букеты на день рождения', '/composition/birthday.html'],
+        ['/assets/img/valentin.jpg','День св. Валентина', '/composition/valentin.html'],
+        ['/assets/img/prasdnik.jpeg','Праздник', '/composition/holiday.html']
+    ]
+.grid#composition
+    .grid__list
+        for item in arrComposition
+            .grid__item(style='background-image:url(' + item[0] + ')')
+                a(href=item[2]).grid__link
+                    .grid__description
+                        p #{item[1]}
+                        a(href=item[2]).grid__more Подробнее...

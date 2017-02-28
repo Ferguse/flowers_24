@@ -1,0 +1,20 @@
+extends ../_template
+
+block variables
+    - var title = 'Index'
+block content
+    include ../blocks/header
+    main
+        section.flowers.tab.tab--active
+            include ../blocks/catalog
+            include ../blocks/why_we
+        section.composition.tab
+            include ../blocks/composition
+            include ../blocks/why_we
+            include ../blocks/order
+        section.shops.tab
+            include ../blocks/shops
+        section.about.tab
+            include ../blocks/about
+    include ../blocks/slider
+    include ../blocks/footer

@@ -1,0 +1,8 @@
+.grid#composition
+    .grid__list
+        for item in flavours
+            .grid__item(style='background-image:url(' + item.ava + ')')
+                a(href=item[2]).grid__link
+                    .grid__description
+                        p #{item.title}
+                        a(href=item.link).btn.grid__more Подробнее...

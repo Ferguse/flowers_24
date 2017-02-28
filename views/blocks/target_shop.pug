@@ -1,0 +1,13 @@
+section.shop
+    h2.shop__title=shops.title
+    .shop__wrap
+        img(src=shops.ava alt=shops.title).shop__img
+        .shop__content
+            p.shop__address.text Мы находимся:
+                span.bold #{shops.address}
+            a(href=shops.phone_link).text.shop__phone Наш телефон:
+                span.bold #{shops.phone}
+            p.text Режим работы:
+                span.bold #{shops.time}
+            p.shop__desc.text=shops.description
+            .map#map(attr-loc-x=shops.coord_x attr-loc-y=shops.coord_y)

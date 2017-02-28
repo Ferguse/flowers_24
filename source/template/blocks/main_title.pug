@@ -1,0 +1,38 @@
+-
+    var titleContent = {
+        'roses': 'РОЗЫ',
+        'chrysantema': 'ХРИЗАНТЕМА',
+        'tulpan': 'ТЮЛЬПАН',
+        'gorshki':'ГОРШКИ',
+        'other':'ЦВЕТЫ',
+        'wedding': 'Свадебные букеты',
+        'birthday': 'День рождения',
+        'holiday':'Праздничные букеты',
+        'valentin':'День влюбленных'
+    }
+-
+    var titles =
+    [
+        'roses',
+        'chrysantema',
+        'tulpan',
+        'gorshki',
+        'other',
+        'wedding',
+        'valentin',
+        'birthday',
+        'holiday'
+    ]
+.header
+    .header__home
+        a(href="/index.html").header__home__link
+
+    .header__top
+        a(href="tel:+79272763963").tel.
+            +7(927)276-39-63
+    .header__center
+        h1.title__header.
+            ЦВЕТЫ МОРДОВИИ
+        for item in titles
+            -if(subtitle == item)
+                h2.main__title=titleContent[item]

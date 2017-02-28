@@ -1,0 +1,119 @@
+-
+    var arrRoses = [
+        ['/assets/img/roses/aqua.jpg', 'Аква'],
+        ['/assets/img/roses/avalanch.jpg', 'Аваланч'],
+        ['/assets/img/roses/avalanch_kandi.jpg', 'Аваланч Канди'],
+        ['/assets/img/roses/blash.jpg', 'Блаш'],
+        ['/assets/img/roses/cabare.jpg', 'Кабаре'],
+        ['/assets/img/roses/deep_water.jpg', 'Дип Вотер'],
+        ['/assets/img/roses/dolche_vita.jpeg', 'Долче Вита'],
+        ['/assets/img/roses/dolomiti.jpg', 'Доломити'],
+        ['/assets/img/roses/fiesta.jpg', 'Фиеста'],
+        ['/assets/img/roses/freedom.jpg', 'Фридом'],
+        ['/assets/img/roses/gran_pri.jpg', 'Гран-при'],
+        ['/assets/img/roses/highorange.jpg', 'Хидж Оранж'],
+        ['/assets/img/roses/luxor.jpg', 'Люксор'],
+        ['/assets/img/roses/malibu.jpg', 'Малибу'],
+        ['/assets/img/roses/megic_avalanch.jpg', 'Магик Аваланч'],
+        ['/assets/img/roses/miks.png', 'Микс'],
+        ['/assets/img/roses/mondial.jpg', 'Мондиаль'],
+        ['/assets/img/roses/red_naomi.jpg', 'Ред Наоми'],
+        ['/assets/img/roses/topaz.jpg', 'Топаз'],
+        ['/assets/img/roses/vendella.jpg', 'Венделла'],
+        ['/assets/img/roses/white_naomi.jpg', 'Вайт Наоми']
+
+    ]
+-
+    var arrCrisantema = [
+        ['/assets/img/crys/anastasiya-belaya.jpg',' Анастасия'],
+        ['/assets/img/crys/bakardi.jpg','Бакарди'],
+        ['/assets/img/crys/baltika.jpg','Балтика'],
+        ['/assets/img/crys/euro_yellow.jpg','Евро желтая'],
+        ['/assets/img/crys/zembla.jpg','Зембла'],
+        ['/assets/img/crys/euro_blue.jpg','Евро синяя'],
+        ['/assets/img/crys/euro_dark_blue.jpg','Евро темно-синяя'],
+        ['/assets/img/crys/memphis.jpg','Мемфис'],
+        ['/assets/img/crys/stallion.jpg','Сталлион'],
+        ['/assets/img/crys/heidar.jpg','Хейдар'],
+        ['/assets/img/crys/exopolis.jpg','Экзополис']
+    ]
+-
+    var arrTulpan = [
+        ['/assets/img/tulpans/yellow_tulp.jpg','Желтый тюльпан'],
+        ['/assets/img/tulpans/red_tulp.jpg','Красный тюльпан'],
+        ['/assets/img/tulpans/orang_tulp.jpg','Оранжевый тюльпан'],
+        ['/assets/img/tulpans/white_tulp.jpg','Белый тюльпан']
+    ]
+-
+    var arrGorshki = [
+        ['/assets/img/gorshki/azalia.jpg','Азалия'],
+        ['/assets/img/gorshki/anturium.jpeg','Антуриум'],
+        ['/assets/img/gorshki/vriezia.jpg','Вриезия'],
+        ['/assets/img/gorshki/gardenia.jpg','Гардения'],
+        ['/assets/img/gorshki/patio.jpg','Роза патио'],
+        ['/assets/img/gorshki/guzmania.jpg','Гузмания'],
+        ['/assets/img/gorshki/kordana.jpeg','Роза кордана'],
+        ['/assets/img/gorshki/spatifilum.jpg','Спатифилум'],
+        ['/assets/img/gorshki/falenopsis.jpg','Фаленопсис'],
+        ['/assets/img/gorshki/ziklamen.jpg','Гузмания'],
+        ['/assets/img/gorshki/palma.jpg','Пальма'],
+        ['/assets/img/gorshki/fialka.jpg','Фиалка'],
+        ['/assets/img/gorshki/ficus.jpeg','Фикус'],
+        ['/assets/img/gorshki/orhid.png','Орхидея'],
+        ['/assets/img/gorshki/rapis.jpg','Рапис']
+    ]
+-
+    var carnation = [
+        '/assets/img/carnation/01.png',
+        '/assets/img/carnation/02.png',
+        '/assets/img/carnation/03.jpg',
+        '/assets/img/carnation/04.jpg',
+        '/assets/img/carnation/05.jpg',
+        '/assets/img/carnation/06.jpg',
+        '/assets/img/carnation/07.jpg',
+        '/assets/img/carnation/08.jpg'
+    ]
+
+-
+    var arrOther = [
+        ['/assets/img/lilii.jpg','Лилия'],
+        ['/assets/img/irisi.jpg','Ирис'],
+        ['/assets/img/gerbera.jpg','Гербера'],
+        ['/assets/img/gerbera.jpg','Альстромерия'],
+        ['/assets/img/gerbera.jpg','Гипсофила'],
+        ['/assets/img/gerbera.jpg','Цимбидиум'],
+        ['/assets/img/gerbera.jpg','Листья Финик'],
+        ['/assets/img/gerbera.jpg','Листья Эвкалипт'],
+        ['/assets/img/gerbera.jpg','Солидаго'],
+        ['/assets/img/gerbera.jpg','Статица']
+    ]
+
+
+.grid
+    .grid__list
+        h1 test
+
+
+        -if(subtitle == 'roses')
+            for item in arrRoses
+                .grid__item(style='background-image:url(' + item[0] + ')')
+                    .grid__name=item[1]
+        -if(subtitle == 'chrysantema')
+            for item in arrCrisantema
+                .grid__item(style='background-image:url(' + item[0] + ')')
+                    .grid__name=item[1]
+        -if(subtitle == 'carnation')
+            for item in carnation
+                .grid__item(style='background-image:url(' + item + ')')
+        -if(subtitle == 'tulpan')
+            for item in arrTulpan
+                .grid__item(style='background-image:url(' + item[0] + ')')
+                    .grid__name=item[1]
+        -if(subtitle == 'gorshki')
+            for item in arrGorshki
+                .grid__item(style='background-image:url(' + item[0] + ')')
+                    .grid__name=item[1]
+        -if(subtitle == 'other')
+            for item in arrOther
+                .grid__item(style='background-image:url(' + item[0] + ')')
+                    .grid__name=item[1]

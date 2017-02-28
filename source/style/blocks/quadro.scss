@@ -1,0 +1,30 @@
+.quadro {
+  width: 70%;
+  padding: 5rem 15%;
+
+  &__list {
+    width: 100%;
+    min-height: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  }
+  &__item {
+    width: 40%;
+    min-height: 11rem;
+    padding:  3rem 5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &:nth-child(1),
+    &:nth-child(4){
+      background: rgba(238,238,238,.6);
+    }
+  }
+  &__text {
+    margin-bottom: 2rem;
+  }
+}
