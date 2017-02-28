@@ -1,6 +1,6 @@
 var express = require('express');
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 var router = express.Router();
 var mongoose = require('../modules/libs/mongoose')
 var flowers = require('../modules/models/flowers');
@@ -56,7 +56,7 @@ router.get('/remove', function (req, res, next) {
  */
 
 router.post('/newCategory', function (req, res, next) {
-    let form = new multiparty.Form();
+    var form = new multiparty.Form();
     form.parse(req, function (err, fields, files) {
         if (err) return res.json({error: err.message || err})
 
@@ -69,14 +69,14 @@ router.post('/newCategory', function (req, res, next) {
         });
 
 
-        let Model = mongoose.model(fields.name, schema);
-        let item = new Model({
+        var Model = mongoose.model(fields.name, schema);
+        var item = new Model({
             name: fields.name
         });
 
         item.save().then(work => {
-            let pictures = fields.file.filter(f => f.size).map((file, key) => {
-                let newFilePath = path.join('upload', `${work._id}_${key}${path.extname(file.path)}`);
+            var pictures = fields.file.filter(f => f.size).map((file, key) => {
+                var newFilePath = path.join('upload', `${work._id}_${key}${path.extname(file.path)}`);
                 fs.writeFileSync(path.resolve(config.http.publicRoot, newFilePath), fs.readFileSync(file.path));
 
                 return newFilePath;

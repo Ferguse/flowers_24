@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
         flavours.find({}, function (err, flavours) {
             shops.find({}, function (err, shops) {
                 function getRand(max, min) {
-                    let result = Math.random() * (max - min) + min;
+                    var result = Math.random() * (max - min) + min;
                     return Math.ceil(result)
                 }
                 res.render('index', {'flowers': items, 'flavours': flavours, 'shops': shops, random: getRand(0,flavours.length)});
