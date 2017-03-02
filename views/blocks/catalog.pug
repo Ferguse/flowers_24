@@ -1,9 +1,11 @@
 h2.subtitle  Каталог наших цветов
-.grid#about
-    .grid__list
-        -for (var i in flowers)
-            .grid__item(style='background-image:url(' + flowers[i].img + ')')
-                a(href=flowers[i].link).grid__link
-                    .grid__description
-                        p.title #{flowers[i].description}
-                            a(href=flowers[i].link).grid__more.btn Смотреть
+.box-animation
+    .box-animation__inner
+        .grid#about
+            .grid__list
+                -for (var i in flowers)
+                    .grid__item(style='background-image:url(' + flowers[i].img + ')')
+                        a(href=flowers[i].link).grid__link
+                            .grid__description
+                                p.title #{flowers[i].description}
+                                    a(href=flowers[i].link).grid__more.btn Смотреть

@@ -1,6 +1,6 @@
 section.address
-    h2.title Наши магазины в Саранске и Рузаевке:
-        ul.address__list
-            -for (i in shops)
-                li.adress__item
-                    a(href=shops[i].link).address__link.text-white=shops[i].address
+    h2.title.text-white Наши магазины в Саранске и Рузаевке:
+    ul.address__list
+        -for (i in shops)
+            li.adress__item
+                a(href=shops[i].link).address__link.text-white=shops[i].address

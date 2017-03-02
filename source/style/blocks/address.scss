@@ -4,12 +4,14 @@
   background-attachment: fixed;
   padding: 5rem 5%;
   position: relative;
+  z-index: 1;
 
   &::before {
     @include pseudo(100%, 100%);
     background: rgba(0,0,0,.5);
     left: 0;
     top: 0;
+    z-index: -1;
   }
 
   &__list {
@@ -19,5 +21,8 @@
   &__link {
     cursor: pointer;
     border-bottom: 1px dashed $color_text_white;
+    text-decoration: none;
+    z-index: 100;
+    color: white;
   }
 }

@@ -11,13 +11,13 @@
                 Сеть цветочных магазинов
         nav.nav
             ul.nav__list
-                li.nav__item.nav__btn--active
-                    a(href="#" attr-tab="flowers").nav__btn Цветы
                 li.nav__item
-                    a(href="#" attr-tab="composition").nav__btn Букеты
+                    button(type="button" attr-tab="flowers").nav__btn.nav__btn--active Цветы
                 li.nav__item
-                    a(href="#" attr-tab="shops").nav__btn Магазины
+                    button(type="button" attr-tab="composition").nav__btn Букеты
                 li.nav__item
-                    a(href="#" attr-tab="about").nav__btn О нас
+                    button(type="button" attr-tab="shops").nav__btn Магазины
+                li.nav__item
+                    button(type="button" attr-tab="about").nav__btn О нас
 -if ( title != "Index" )
     include ../blocks/main_title

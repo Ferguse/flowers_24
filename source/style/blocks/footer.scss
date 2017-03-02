@@ -21,9 +21,12 @@
     max-width: 50%;
   }
   &__link {
-    text-decoration: none;;
+    text-decoration: none;
+    background: none;
+    border: none;
     color: $color_bg;
     border-bottom: 1px dashed $color_bg;
+    cursor:pointer;
   }
   &__bottom {
     color: #eee;
