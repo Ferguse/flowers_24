@@ -5,15 +5,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 //routes
 var index = require('./routes/index');
 var flowers = require('./routes/flowers');
-var flavours = require('./routes/flavours');
+var bouquet = require('./routes/bouquet');
 var shops = require('./routes/shops');
 var admin = require('./routes/admin');
 
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views/pages'));
@@ -24,22 +26,29 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('CP2017'));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/index', index);
 app.use('/flowers', flowers);
-app.use('/flavours', flavours);
+app.use('/bouquet', bouquet);
 app.use('/shops', shops);
 app.use('/admin', admin);
 
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
+//catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 // error handler
 app.use(function(err, req, res, next) {

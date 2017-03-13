@@ -10,13 +10,22 @@
   min-height: 30rem;
   overflow: hidden;
   position: relative;
-  background: url("../img/header_bg.jpg") no-repeat 50% 50%;
+  background: url("../img/header.jpg") no-repeat 50% 50%;
   background-size: cover;
   background-attachment: fixed;
 
   &::before {
     @include pseudo(100%, 100%);
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.2);
+  }
+  &::after {
+    @include pseudo(60%, 70%);
+    background: rgba(250,250,250,.3);
+    transform: rotate(6deg);
+    transition: all 15s ease-in;
+  }
+  &:hover::after {
+    transform: rotate(18deg);
   }
 
   &__home {
@@ -36,8 +45,8 @@
       linear-gradient(to top left, rgba(0,100,0,.5), rgba(255,255,0,.5), rgba(0,100,0,.5));
       background-size: cover;
       text-decoration: none;
-      width: 3rem;
-      height: 3rem;
+      width: 2rem;
+      height: 2rem;
       border-radius: .4rem;
       display: inline-block;
       position: fixed;
@@ -72,15 +81,40 @@
 
   .tel {
     position: absolute;
+    display: inline-block;
+    padding: 2rem;
     color: $color_bg;
-    top:2rem;
-    right: 2rem;
+    top:0;
+    right: 0;
     font-size: 1.1rem;
     letter-spacing: .2rem;
     text-decoration: none;
     letter-spacing: .4rem;
+    transition: all 1s ease-in;
+
+    &::after {
+      @include pseudo(10rem, 10rem);
+      background: rgba(255,255,255,.3) url("../img/icons/phone.png") no-repeat 3% 97%;
+      background-size: 1.5rem;
+      right: -8rem;
+      top: -8rem;
+    }
+
+    &:hover::after {
+      transition: 1s;
+      right: 13.5rem;
+      top: -2.3rem;
+      transform: rotate(-10deg);
+      background-size: 2rem;
+      background-position: 50% 50%;
+    }
+
+    &:hover {
+      color: $color_btn_hover;
+    }
+
     @include phone {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
 }
@@ -166,6 +200,7 @@
   position: absolute;
   width: 100%;
 
+
   &__list {
     list-style: none;
     display: flex;
@@ -173,7 +208,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    background: rgba(0,100,0,.8);
+    background: $color_btn;
   }
 
   &__item {
@@ -181,15 +216,16 @@
     height: 100%;
     width: 25%;
     height: 3rem;
+
     @include phone {
-      height: 10rem;
+      height: 6rem;
     }
   }
 
   &__btn {
     width: 100%;
     color: rgba(255,255,255,.9);
-    background: rgba(255,255,255,.5);
+    background: $color_btn;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -199,19 +235,20 @@
     border: none;
     cursor: pointer;
 
+
     @include phone {
       font-size: 1.5rem;
     }
 
     &:hover {
-      background: rgba(255,255,255,.8);
-      color: rgba(0,0,0,.9);
+      background: rgba(0,191,165,.6);
+      color: rgba(250,250,250,.9);
       transition: .5s;
     }
 
     &--active {
-      color: rgba(0,0,0,.9);
-      background: rgba(255,255,255,.4);
+      color: rgba(250,250,250,.9);
+      background: $color_btn_hover;
     }
   }
 }
@@ -220,5 +257,5 @@
   position: fixed;
   top:0;
   height: 3rem;
-  z-index:100;
+  z-index:300;
 }

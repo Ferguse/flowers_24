@@ -5,6 +5,7 @@ body {
   flex-flow: column;
   min-height: 100vh;
   min-width: 300px;
+  position: relative;
 }
 
 main { flex: 1; }
@@ -19,7 +20,6 @@ main { flex: 1; }
 @import 'blocks/header';
 @import "blocks/footer";
 
-
 // index styles
 @import "blocks/quadro";
 @import "blocks/grid";
@@ -30,7 +30,9 @@ main { flex: 1; }
 @import "blocks/shop";
 @import "blocks/address";
 @import "blocks/admin";
-@import "blocks/box_animation";
-
+@import "blocks/contacts";
+@import "blocks/preloader";
+@import "blocks/auth";
+@import "blocks/message";
 //media
 @import "common/media";

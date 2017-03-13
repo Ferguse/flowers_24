@@ -1,13 +1,4 @@
-//-
-//-    var flavours = {
-//-        'wedding': ['/img/flouvers/wedding/001.png','/assets/img/flouvers/wedding/002.jpg','/assets/img/flouvers/wedding/003.jpg','/assets/img/flouvers/wedding/004.jpg','/assets/img/flouvers/wedding/005.jpg'],
-//-        'holiday': ['/img/flouvers/holiday/001.jpg','/assets/img/flouvers/holiday/002.jpg','/assets/img/flouvers/holiday/003.jpg','/assets/img/flouvers/holiday/004.jpg','/assets/img/holiday/wedding/005.jpeg'],
-//-        'valentin': ['/img/flouvers/valentin/001.jpg','/assets/img/flouvers/valentin/002.jpg','/assets/img/flouvers/valentin/003.jpeg','/assets/img/flouvers/valentin/004.jpg','/assets/img/valentins/wedding/005.jpg'],
-//-        'birthday': ['/img/flouvers/birthday/001.jpg','/assets/img/flouvers/birthday/002.jpg','/assets/img/flouvers/birthday/003.jpg','/assets/img/flouvers/birthday/004.jpg','/assets/img/flouvers/birthday/005.jpg']
-//-    }
-.box-animation
-    .box-animation__inner
-        .grid#composition
-            .grid__list
-                for item in flavours.list
-                    .grid__item(style='background-image:url(' + item + ')')
+.grid#composition
+    .grid__list
+        for item in flavours.list
+            .grid__item(style='background-image:url(' + item + ')')

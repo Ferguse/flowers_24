@@ -37,6 +37,15 @@ $background: #ffffff;
   display: inline-block;
   text-align: center;
 }
+.line {
+  display: block;
+  padding: .5rem 0;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to right, transparent , $color_btn 90%);
+  margin: 0;
+  color: white;
+}
 
 .text {
   font-size: 1rem;
@@ -52,12 +61,29 @@ $background: #ffffff;
   color: $color_text_white;
 }
 .text-red {
+  font-family: Arial;
   color: $color_text_red;
 }
 .bold {
   font-family: Arial;
 }
 
+.tab {
+  position: relative;
+}
+
+button,
+input,
+textarea{
+  &:active,
+  &:focus {
+    outline: none !important;
+    outline-offset: 0;
+  }
+  &::-moz-focus-inner {
+    border: 0 !important;
+  }
+}
 
 .btn {
   background: $color_btn;
@@ -67,10 +93,12 @@ $background: #ffffff;
   margin:2rem 0;
   cursor: pointer;
   text-decoration: none;
+  z-index: 200;
+  transition: all .7s ease;
 
   &:hover {
-    transition: .5s;
-    background: $color_btn_hover;
+    //background: $color_btn_hover;
+    box-shadow: inset 0 0 0 50px $color_btn_hover;
   }
 }
 
@@ -124,26 +152,4 @@ $background: #ffffff;
   position: absolute;
   width: $width;
   height: $height;
-}
-
-/**
-*
-* Styles for code text
-*
-*/
-
-.code {
-  white-space: pre;
-  tab-size: 2;
-  background-color: rgba(255,255,0,.3);
-  position: relative;
-  padding: 1rem;
-  color: rgba(0,76,209,.8);
-
-  &::before {
-    @include pseudo(.5rem, 100%);
-    background: rgba(255,255,0,.9);
-    left: 0;
-    top: 0;
-  }
 }

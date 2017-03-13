@@ -17,7 +17,8 @@ let port = config.db.port;
 let db = config.db.name;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://${host}:${port}/${db}`, options)
+// mongoose.connect(`mongodb://${host}:${port}/${db}`, options)
+mongoose.connect(`mongodb://localhost/flowers`)
 	.catch(e => {
 		console.error(e);
 		throw e;

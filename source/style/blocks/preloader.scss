@@ -1,0 +1,34 @@
+.preloader {
+  position:absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: $color_btn_hover;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 5%;
+  color: #ffffff;
+  opacity: .95;
+  transition: .3s;
+
+  @keyframes roll {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  &::after {
+    @include pseudo(6rem, 6rem);
+    box-shadow: 5px 0 5px #ffffff;
+    border-radius: 50%;
+    top:3rem;
+    left: 45%;
+    left: calc(50% - 3rem);
+    animation: 1s roll ease-out infinite;
+  }
+}

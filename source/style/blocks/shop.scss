@@ -1,15 +1,26 @@
-.shop {
-  padding: 2rem 5%;
+.target__shop {
+  padding: 3rem 5%;
+  width: 80%;
+  background: rgba(210,210,210,.97);
+  position: absolute;
+  z-index: 300;
+  left: 5%;
+  top: 3rem;
+  border-radius: 1rem;
+  display: none;
+  opacity: 0;
+  transition: .5s;
+  overflow: hidden;
 
-  &::after {
-    @include pseudo();
-    clear: both;
-  }
+}
+.shop {
 
   &__wrap {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-start;
+
     @include phone {
       align-items: center;
       flex-direction: column;
@@ -19,20 +30,51 @@
   &__title {
     text-align: center;
     font-size: 2.5rem;
+    margin: 0;
   }
 
   &__img {
-    margin: 0 5% 2rem 5%;
-    max-width: 40%;
-    box-shadow: 1px 1px 0 2px rgba(0,0,0,.5);
+    margin: 1rem 5% 0 0;
+    max-height: 60%;
+    width: 30%;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,.2);
     @include phone {
       max-width: 80%;
     }
   }
-  .map {
+
+  &__content {
+    width: 50%;
+  }
+
+  &__map {
     width: 100%;
+    height: 12rem;
+    overflow: hidden;
     box-shadow: 1px 1px 0 0 rgba(0,0,0,.5);
-    height: 20rem;
     background: rgba(0,0,240,.1);
+  }
+  &__close {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid $color_btn;
+    border-radius: 50%;
+    color: $color_btn;
+    transform: rotate(45deg);
+    cursor:pointer;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s ease;
+    position: absolute;
+    top:1rem;
+    right: 1rem;
+
+    &:hover {
+      background: $color_btn_hover;
+      color: #ffffff;
+      border-color: $color_btn_hover;
+    }
   }
 }

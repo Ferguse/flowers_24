@@ -1,11 +1,13 @@
 
+
 .slider {
   width: 100%;
-  min-height: 30rem;
+  height: 30rem;
   background: $color_bg;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1.5s;
 
   &__wrap {
     position: relative;
@@ -18,7 +20,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 1000vw;
+    //width: 10000vw;
     min-height: 30rem;
     display: flex;
     position: absolute;
@@ -64,8 +66,8 @@
 .left {
   width: 3rem;
   height: 3rem;
-  border-top: 3px solid rgba(0,100,0,.8);
-  border-right: 3px solid rgba(0,100,0,.8);
+  border-top: 3px solid $color_btn;
+  border-right: 3px solid $color_btn;
   border-bottom: 3px solid transparent;
   border-left: 3px solid transparent;
   position: absolute;
@@ -77,6 +79,8 @@
 
   &:hover {
     opacity: 1;
+    border-top: 3px solid $color_btn_hover;
+    border-right: 3px solid $color_btn_hover;
   }
 }
 .left {
@@ -99,4 +103,15 @@
   @include tablet {
     right:5%;
   }
+}
+.slider--hidden {
+  height: 0px;
+  overflow: hidden;
+  background: $color_btn;
+  .right,
+  .left {
+    opacity: 0;
+  }
+;
+;
 }

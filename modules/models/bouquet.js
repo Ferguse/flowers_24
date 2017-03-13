@@ -18,20 +18,20 @@ function createModel(name) {
     return type;
 }
 
-// let model = createModel('flavours');
+// let model = createModel('bouquet');
 // var item = new model({
-//     name: 'holiday',
+//     name: 'test',
 //     ava: '/img/prasdnik.jpeg',
-//     link: '/flavours/holiday',
+//     link: '/bouquet/holiday',
 //     title: 'ПРАЗДНИЧНЫЕ',
 //     list: [
-//             '/img/flouvers/holiday/001.jpg',
-//             '/img/flouvers/holiday/002.jpg',
-//             '/img/flouvers/holiday/003.jpg',
-//             '/img/flouvers/holiday/004.jpg',
-//             '/img/flouvers/holiday/005.jpeg'
+//             '/img/bouquet/holiday/001.jpg',
+//             '/img/bouquet/holiday/002.jpg',
+//             '/img/bouquet/holiday/003.jpg',
+//             '/img/bouquet/holiday/004.jpg',
+//             '/img/bouquet/holiday/005.jpeg'
 //     ]
 // })
 // item.save(function (err, item) { if (err) { console.log("something wrong") }});
 
-module.exports = createModel('flavours');
+module.exports = createModel('bouquet');

@@ -2,7 +2,7 @@
   background: url('/img/header_bg.jpg') no-repeat 50% 50%;
   background-size: cover;
   background-attachment: fixed;
-  padding: 5rem 5%;
+  padding: 4rem 5%;
   position: relative;
   z-index: 1;
 
@@ -24,5 +24,12 @@
     text-decoration: none;
     z-index: 100;
     color: white;
+    line-height: 1.5rem;
+
+    &:hover {
+      transition: .5s;
+      color: $color_btn_hover;
+      border-bottom: 1px dashed $color_btn_hover;
+    }
   }
 }

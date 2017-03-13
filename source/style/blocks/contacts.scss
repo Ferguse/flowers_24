@@ -1,0 +1,58 @@
+.contacts {
+  width: 90%;
+  min-height: 20rem;
+  position: relative;
+  display: flex;
+  background: url("../img/header_bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+  padding: 2rem 5%;
+
+  &::before {
+    top:0;
+    left: 0;
+
+    @include pseudo(100%, 100%);
+    background: rgba(0,0,0,.5);
+    z-index: -1;
+  }
+
+  &__list {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    height: 70%;
+  }
+  &__item {
+    width: 45%;
+    padding: 0 2.5%;
+    height: 50%;
+  }
+  &__form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .text, .text-white {
+    display: block;
+    margin: 0 0 1rem 0;
+  }
+  &__input {
+    width: 70%;
+    margin-bottom: 1rem;
+    border: none;
+    padding: 1rem;
+  }
+  &__text {
+    width: 70%;
+    margin-bottom: 1rem;
+    border: none;
+    height: 5rem;
+    padding: 1rem;
+  }
+}

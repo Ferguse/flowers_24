@@ -1,5 +1,5 @@
 var express = require('express');
-var mongoose = require('../libs/mongoose')
+var mongoose = require('../libs/mongoose');
 
 function createSchema() {
     var schema = new mongoose.Schema({

@@ -2,6 +2,7 @@
   width: 90%;
   padding: 1rem 5%;
   background: url("../img/header_bg.jpg") no-repeat 0 100%;
+  background-attachment: fixed;
   background-size: cover;
   position: relative;
   z-index:1;
@@ -18,7 +19,7 @@
     padding: 0;
     display: flex;
     justify-content: space-between;
-    max-width: 50%;
+    min-width: 50%;
   }
   &__link {
     text-decoration: none;
@@ -27,6 +28,12 @@
     color: $color_bg;
     border-bottom: 1px dashed $color_bg;
     cursor:pointer;
+    transition: .5s;
+    
+    &:hover {
+      color: $color_btn_hover;
+      border-bottom: 1px dashed $color_btn_hover;
+    }
   }
   &__bottom {
     color: #eee;

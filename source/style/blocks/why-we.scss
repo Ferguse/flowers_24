@@ -11,6 +11,7 @@
   &::before {
     top:0;
     left: 0;
+
     @include pseudo(100%, 100%);
     background: rgba(0,0,0,.5);
     z-index: -1;
@@ -28,21 +29,30 @@
     padding: 1rem;
     color: #ffffff;
     position: relative;
+
     @include phone {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
+    }
+    &:hover::after {
+      transition:.5s;
+      width:2.3rem;
+      height: 1.1rem;
+      border-right-color: $color_btn_hover;
+      border-top-color: $color_btn_hover;
     }
 
     &::after {
       @include pseudo(2rem, 1rem);
-      border-right: 1px solid lightgreen;
-      border-left: 1px solid transparent;
-      border-top: 1px solid lightgreen;
-      border-bottom: 1px solid transparent;
+      border-right: 2px solid $color_btn;
+      border-left: 2px solid transparent;
+      border-top: 4px solid $color_btn;
+      border-bottom: 2px solid transparent;
       left: -2rem;
       top: 1rem;
       transform: rotate(135deg);
+
       @include phone {
-        top: 3rem;
+        top: 1.5rem;
       }
     }
   }

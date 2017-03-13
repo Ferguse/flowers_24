@@ -1,13 +1,14 @@
-section.shop
-    h2.shop__title=shops.title
+.target__shop
+    .shop__close +
+    h2.shop__title.text-white
     .shop__wrap
-        img(src=shops.ava alt=shops.title).shop__img
+        img(src="" alt="").shop__img
         .shop__content
             p.shop__address.text Мы находимся:
-                span.bold #{shops.address}
-            a(href=shops.phone_link).text.shop__phone Наш телефон:
-                span.bold #{shops.phone}
-            p.text Режим работы:
-                span.bold #{shops.time}
-            p.shop__desc.text=shops.description
-            .map#map(attr-loc-x=shops.coord_x attr-loc-y=shops.coord_y)
+                span.bold
+            a(href="").text.shop__phone Наш телефон:
+                span.bold
+            p.shop__time.text Режим работы:
+                span.bold
+            p.shop__desc.text
+            .map#map(data-loc-x="" data-loc-y="").shop__map

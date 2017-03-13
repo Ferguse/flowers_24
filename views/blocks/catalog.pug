@@ -1,11 +1,8 @@
-h2.subtitle  Каталог наших цветов
-.box-animation
-    .box-animation__inner
-        .grid#about
-            .grid__list
-                -for (var i in flowers)
-                    .grid__item(style='background-image:url(' + flowers[i].img + ')')
-                        a(href=flowers[i].link).grid__link
-                            .grid__description
-                                p.title #{flowers[i].description}
-                                    a(href=flowers[i].link).grid__more.btn Смотреть
+h2.subtitle.line  Каталог наших цветов
+.grid#about
+    .grid__list
+        -for (var i in flowers)
+            .grid__item(style='background-image:url(' + flowers[i].img + ')')
+                button(type="button" data-name=flowers[i].name).grid__wrap
+                    p.grid__title #{flowers[i].description}
+                    button(type="button" data-name=flowers[i].name).grid__more.btn Смотреть

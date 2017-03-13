@@ -5,17 +5,17 @@ block variables
 block content
     include ../blocks/header
     main
-        section.flowers.tab.tab--active
+        section(data-title="flowers").flowers.tab.tab--active
             include ../blocks/quadro
             include ../blocks/catalog
-            include ../blocks/why_we
-        section.composition.tab
-            include ../blocks/composition
-            include ../blocks/why_we
+        section(data-title="bouquet").bouquet.tab
+            include ../blocks/bouquet
             include ../blocks/order
-        section.shops.tab
+        section(data-title="shops").shops.tab
             include ../blocks/shops
-        section.about.tab
+        section(data-title="about").about.tab
             include ../blocks/about
+            include ../blocks/contacts
     include ../blocks/slider
+    include ../blocks/why_we
     include ../blocks/footer
