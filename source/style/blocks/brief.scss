@@ -1,0 +1,26 @@
+.brief {
+  display: flex;
+
+  &__main {
+    width: 80%;
+    padding: 3rem 1rem;
+  }
+  &__title {
+    width: 30%;
+    position: relative;
+    background: rgba(104,159,195,.3);
+    transition: 1s;
+    &:hover {
+      background: rgba(0,191,165,.3);
+    }
+  }
+  &__list {
+    list-style: none;
+  }
+  &__rotate {
+    position: absolute;
+    top: 20%;
+    transform: rotate(90deg);
+    font-size: 3rem;
+  }
+}

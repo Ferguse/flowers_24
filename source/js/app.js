@@ -41,12 +41,15 @@ var changeTab = (function () {
         'footerBtn': function () {
             footerList.addEventListener('mouseup', function (e) {
                 if (e.target.closest('.footer__link')) {
+                    changeTab.removeActiveClass();
                     var name = '.' + e.target.closest('.footer__link').getAttribute('data-tab');
+                    var attr = e.target.closest('.footer__link').getAttribute('data-tab');
+                    console.log(document.querySelector('[attr-tab=' + attr + ']'));
                     for (var i = 0; i < arrTab.length; i++) {
                         arrTab[i].classList.remove('tab--active');
                     }
+                    document.querySelector('[attr-tab=' + attr + ']').classList.add('nav__btn--active');
                     document.querySelector(name).classList.add('tab--active');
-                    var attr = e.target.closest('.footer__link').getAttribute('data-tab')
                     changeTab.hideSlider();
                     sendAJAX.init(attr, true);
                     scrollTo(e.target, document.querySelector('header'), 700)
