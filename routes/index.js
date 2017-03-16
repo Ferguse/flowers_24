@@ -9,22 +9,6 @@ var session = require('express-session');
 
 var config = require('../config.json');
 
-// =================
-var app = require('express')(),
-    mailer = require('express-mailer');
-mailer.extend(app, {
-    from: 'ferguse@yandex.ru',
-    host: 'smtp.yandex.ru', // hostname
-    secureConnection: true, // use SSL
-    port: 465, // port for secure SMTP
-    transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
-    auth: {
-        user: 'ferguse@yandex.ru',
-        pass: 'sp0rtlife'
-    }
-});
-//=====================================
-
 /* GET home page. */
 
 router.get('/', function (req, res, next) {

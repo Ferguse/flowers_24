@@ -8,9 +8,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 //routes
 var index = require('./routes/index');
-var flowers = require('./routes/flowers');
-var bouquet = require('./routes/bouquet');
-var shops = require('./routes/shops');
+var company = require('./routes/company');
 var admin = require('./routes/admin');
 
 var app = express();
@@ -38,9 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/index', index);
-app.use('/flowers', flowers);
-app.use('/bouquet', bouquet);
-app.use('/shops', shops);
+app.use('/company', company);
 app.use('/admin', admin);
 
 //catch 404 and forward to error handler

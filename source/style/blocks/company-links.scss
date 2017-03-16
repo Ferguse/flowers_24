@@ -1,0 +1,40 @@
+.company-links {
+  display: flex;
+  padding: 3rem 5%;
+  overflow: hidden;
+  &__left {
+    width: 30%;
+  }
+  &__right {
+    width: 60%;
+    position: relative;
+
+
+    &::after {
+      @include pseudo(300%, 500%);
+      top: -50%;
+      left: -10%;
+      background: $color_btn_hover;
+      transform: rotate(6deg);
+      transition: all 5s ease-in;
+      z-index: -1;
+    }
+    &:hover::after {
+      transform: rotate(18deg);
+    }
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  &__link {
+    border-bottom: 1px dashed $color_text;
+    transition: .5s;
+    &:hover {
+      color: #ffffff;
+      border-bottom: 1px dashed $color_btn_hover;
+
+    }
+  }
+}
