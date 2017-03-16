@@ -3,6 +3,7 @@ h2.subtitle.line  Каталог наших цветов
     .grid__list
         -for (var i in flowers)
             .grid__item(style='background-image:url(' + flowers[i].img + ')')
-                button(type="button" data-name=flowers[i].name).grid__wrap
-                    p.grid__title #{flowers[i].description}
+                a(href="#" data-name=flowers[i].name).grid__wrap
+                    .grid__box-title
+                        p.grid__title #{flowers[i].description}
                     button(type="button" data-name=flowers[i].name).grid__more.btn Смотреть

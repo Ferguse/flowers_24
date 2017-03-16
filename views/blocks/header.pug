@@ -1,23 +1,25 @@
 //- Created by Anton on 09/01/2017.
--if ( title == "Index" )
-    .header.index
-        .header__top
-            a(href="tel:+79272763963").tel.
-                +7(927)276-39-63
-        .header__center
-            h1.text-white.header__title ЦВЕТЫ
-                span.text-red 24 часа
-            h2.header__subtitle.
-                Сеть цветочных магазинов
+
+.header.index
+    -if ( title != "Index" )
+        .header__home
+            a(href="/").header__home__link
+    .header__top
+        a(href="tel:+79272763963").tel.
+            +7(927)276-39-63
+    .header__center
+        h1.text-white.header__title ЦВЕТЫ
+            span.text-red 24 часа
+        h2.header__subtitle.
+            Сеть цветочных магазинов
+    -if ( title == "Index" )
         nav.nav
             ul.nav__list
                 li.nav__item
-                    button(type="button" attr-tab="flowers").nav__btn.nav__btn--active Цветы
+                    button(type="button" data-tab="flowers").nav__btn.nav__btn--active Цветы
                 li.nav__item
-                    button(type="button" attr-tab="bouquet").nav__btn Букеты
+                    button(type="button" data-tab="bouquet").nav__btn Букеты
                 li.nav__item
-                    button(type="button" attr-tab="shops").nav__btn Магазины
+                    button(type="button" data-tab="shops").nav__btn Магазины
                 li.nav__item
-                    button(type="button" attr-tab="about").nav__btn О нас
--if ( title != "Index" )
-    include ../blocks/main_title
+                    button(type="button" data-tab="about").nav__btn О нас

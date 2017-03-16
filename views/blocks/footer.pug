@@ -1,16 +1,17 @@
 footer.footer
     .footer__top
-        .footer__map
-            ul.footer__list
-                li.footer__item
-                    button(type="button" data-tab="flowers").footer__link Главная
-                li.footer__item
-                    button(type="button" data-tab="bouquet").footer__link Букеты
-                li.footer__item
-                    button(type="button" data-tab="shops").footer__link Магазины
-                li.footer__item
-                    button(type="button" data-tab="about").footer__link О нас
-        a(href="/auth").footer__key
+        -if ( title === "Index" )
+            .footer__map
+                ul.footer__list
+                    li.footer__item
+                        button(type="button" data-tab="flowers").footer__link Главная
+                    li.footer__item
+                        button(type="button" data-tab="bouquet").footer__link Букеты
+                    li.footer__item
+                        button(type="button" data-tab="shops").footer__link Магазины
+                    li.footer__item
+                        button(type="button" data-tab="about").footer__link О нас
+            a(href="/auth").footer__key
     .footer__bottom
-        span ИП Каева Елена Николаевна | Все материалы данного сайта защищена авторским правом, публикация разрешается с обя
+        span ИП Каева Елена Николаевна | "Цветы 24. Сеть магазинов" Мордовия | 2002 - 2017
     include auth

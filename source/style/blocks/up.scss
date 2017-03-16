@@ -1,0 +1,36 @@
+.up {
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 2px rgba(255,255,255,.5);
+  background: rgba(255,255,255,.5);
+  cursor: pointer;
+  z-index: 300;
+  transition: .8s;
+
+  &:hover {
+    box-shadow: 0 0 2px 5px rgba(255,255,255,.9);
+    background: rgba(255,255,255,.9);
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 35%;
+    left: 23%;
+    border-top: 2px solid $color_btn;
+    border-left: 2px solid $color_btn;
+    transform: rotate(45deg);
+    transition: .8s;
+
+    &:hover {
+      top: 25%;
+      border-top: 2px solid $color_btn_hover;
+      border-left: 2px solid $color_btn_hover;
+    }
+  }
+}

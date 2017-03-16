@@ -14,6 +14,8 @@ main { flex: 1; }
   display: block;
   width: 100%;
 }
+
+
 //common styles
 @import "common/common";
 @import 'common/fonts';
@@ -36,5 +38,9 @@ main { flex: 1; }
 @import "blocks/message";
 @import "blocks/brief";
 @import "blocks/company-links";
+@import "blocks/opt";
+@import "blocks/company";
+@import "blocks/more_question";
+@import "blocks/up";
 //media
 @import "common/media";

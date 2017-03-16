@@ -31,7 +31,7 @@
   &__home {
     position: absolute;
     color: $color_bg;
-    top:1rem;
+    top: 1rem;
     left: 3rem;
     font-size: 1rem;
     letter-spacing: .2rem;
@@ -41,9 +41,8 @@
     &__link {
       color: #eeeeee;
       cursor: pointer;
-      background: url("../img/icons/home.svg"),
-      linear-gradient(to top left, rgba(0,100,0,.5), rgba(255,255,0,.5), rgba(0,100,0,.5));
-      background-size: cover;
+      background: url("../img/icons/home.svg") no-repeat 50% 50%, $color_btn;
+      background-size: 80%;
       text-decoration: none;
       width: 2rem;
       height: 2rem;
@@ -52,9 +51,11 @@
       position: fixed;
       z-index: 100;
       opacity: .8;
+      transition: .8s;
 
       &:hover {
-        transition: .5s;
+        background: url("../img/icons/home.svg") no-repeat 50% 50%, $color_btn_hover;
+        background-size: 80%;
         opacity: 1;
       }
     }

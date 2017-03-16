@@ -1,0 +1,21 @@
+.opt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 5%;
+
+  &__map {
+    width: 100%;
+    transition: .5s;
+
+  }
+  .hidden {
+    opacity: 0;
+    height: 0;
+  }
+  .active {
+    opacity: 1;
+    height: 15rem;
+  }
+}

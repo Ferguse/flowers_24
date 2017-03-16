@@ -17,6 +17,7 @@ var changeTab = (function () {
             this.quadroBtn();
             this.footerBtn();
             this.navBtn();
+            this.moreQuestion();
         },
         // Toggle of the tab if client clicks the nav panel
         'navBtn': function () {
@@ -24,52 +25,66 @@ var changeTab = (function () {
                 changeTab.removeActiveClass();
 
                 if (e.target.closest('.nav__btn')) {
-                    var target = '.' + e.target.getAttribute('attr-tab');
+                    var target = '.' + e.target.getAttribute('data-tab');
                     e.target.classList.add('nav__btn--active');
                     document.querySelector(target).classList.add('tab--active');
-                    var attr = e.target.getAttribute('attr-tab');
+                    var attr = e.target.getAttribute('data-tab');
                     changeTab.hideSlider();
                     // Get AJAX request for the data
                     sendAJAX.init(attr, true);
-
-                    scrollTo(e.target, document.querySelector('main'), 800)
+                    scrollTo('main', 800)
                 }
             })
         },
 
         // Toggle of the tab if client clicks the nav panel
-        'footerBtn': function () {
+        footerBtn: function () {
             footerList.addEventListener('mouseup', function (e) {
                 if (e.target.closest('.footer__link')) {
                     changeTab.removeActiveClass();
                     var name = '.' + e.target.closest('.footer__link').getAttribute('data-tab');
                     var attr = e.target.closest('.footer__link').getAttribute('data-tab');
-                    console.log(document.querySelector('[attr-tab=' + attr + ']'));
+                    // console.log(document.querySelector('[data-tab=' + attr + ']'));
                     for (var i = 0; i < arrTab.length; i++) {
                         arrTab[i].classList.remove('tab--active');
                     }
-                    document.querySelector('[attr-tab=' + attr + ']').classList.add('nav__btn--active');
+                    document.querySelector('[data-tab=' + attr + ']').classList.add('nav__btn--active');
                     document.querySelector(name).classList.add('tab--active');
                     changeTab.hideSlider();
                     sendAJAX.init(attr, true);
-                    scrollTo(e.target, document.querySelector('header'), 700)
+                    scrollTo('main', 800);
                 }
             })
         },
-        'quadroBtn': function () {
+        quadroBtn: function () {
             var flavoursLink = document.querySelector('#quadro__flavours');
-            var flowersLink = document.querySelector('#quadro__flowers');
+            // var flowersLink = document.querySelector('#quadro__flowers');
 
-            flavoursLink.addEventListener('mouseup', function () {
-                for (var i = 0; i < arrTab.length; i++) {
-                    arrTab[i].classList.remove('tab--active');
-                }
-                flavoursLink.classList.add('tab--active');
-                window.scrollTo(0, top)
+            flavoursLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                changeTab.removeActiveClass();
+                var target = '.' + e.target.getAttribute('data-tab');
+                document.querySelector(target).classList.add('tab--active');
+                var attr = e.target.getAttribute('data-tab');
+                changeTab.hideSlider();
+                document.querySelector('[data-tab=' + attr + ']').classList.add('nav__btn--active');
+                sendAJAX.init(attr, true);
             })
-            flowersLink.addEventListener('mouseup', function () {
-                let toFlowers = document.querySelector('#about').offsetTop;
-                window.scrollTo(0, toFlowers)
+            // flowersLink.addEventListener('mouseup', function () {
+            //     let toFlowers = document.querySelector('#about').offsetTop;
+            //     window.scrollTo(0, toFlowers)
+            // })
+        },
+        moreQuestion: function () {
+            if (!document.querySelector('.more-question__link')) return;
+            document.querySelector('.more-question__link').addEventListener('click', function (e) {
+                e.preventDefault();
+                changeTab.removeActiveClass();
+                var target = '.' + e.target.getAttribute('data-tab');
+                document.querySelector(target).classList.add('tab--active');
+                var attr = e.target.getAttribute('data-tab');
+                changeTab.hideSlider();
+                scrollTo('.contacts', 800);
             })
         },
         removeActiveClass: function () {
@@ -149,10 +164,11 @@ var generateItem = (function () {
                 var gridList = document.querySelector('.' + target + ' .grid__list');
                 var gridItem = document.createElement('li');
                 var gridTitle = document.createElement('p');
-                var gridWrap = document.createElement('button');
+                var gridWrap = document.createElement('a');
                 var gridBtn = document.createElement('button');
+                var gridBoxTitle = document.createElement('div');
 
-                gridWrap.type = 'button';
+                gridWrap.href = '#';
                 gridWrap.setAttribute('data-name', current.name);
                 gridBtn.type = 'button'
 
@@ -161,14 +177,16 @@ var generateItem = (function () {
                 gridTitle.classList.add('grid__title');
                 gridBtn.classList.add('grid__more');
                 gridBtn.classList.add('btn');
+                gridBoxTitle.classList.add('grid__box-title');
 
                 gridItem.style.backgroundImage = 'url(' + current.ava + ')';
 
                 gridTitle.innerHTML = current.title;
                 gridBtn.innerHTML = 'Смотреть';
 
+                gridBoxTitle.appendChild(gridTitle);
                 gridItem.appendChild(gridWrap);
-                gridWrap.appendChild(gridTitle);
+                gridWrap.appendChild(gridBoxTitle);
                 gridWrap.appendChild(gridBtn);
                 gridList.appendChild(gridItem);
 
@@ -191,6 +209,7 @@ var generateItem = (function () {
 
                 }
             }
+            scrollTo('main', 800);
             preloaderIMG.init(arrImg);
         },
     }
@@ -201,6 +220,7 @@ var generateItem = (function () {
  */
 
 var preloaderIMG = (function () {
+    if(!document.querySelector('.grid')) return;
     var divArr = document.querySelectorAll('.grid__item');
     return {
         'init': function (args) {
@@ -256,7 +276,7 @@ var preloaderIMG = (function () {
         }
     }
 })();
-preloaderIMG.init()
+if(document.querySelector('.grid')) preloaderIMG.init();
 /**
  * Fix the navigation panel
  *
@@ -348,13 +368,13 @@ var sliderRun = (function () {
 var mapShow = (function () {
     if (document.querySelector('.shop_map')) return;
     return {
-        'init': function (title) {
+        'init': function (title, container = "map") {
             var map;
             var myPlacemark;
-            var x = document.querySelector('.shop__map').getAttribute('data-loc-x');
-            var y = document.querySelector('.shop__map').getAttribute('data-loc-y');
+            var x = document.querySelector("#" + container).getAttribute('data-loc-x');
+            var y = document.querySelector("#" + container).getAttribute('data-loc-y');
             ymaps.ready(function () {
-                var map = new ymaps.Map("map", {
+                var map = new ymaps.Map(container, {
                     center: [x, y],
                     zoom: 15
                 });
@@ -367,6 +387,7 @@ var mapShow = (function () {
 
                 });
                 map.geoObjects.add(myPlacemark);
+                map.options.set('scrollZoomSpeed', 0.5);
             })
         }
     }
@@ -434,13 +455,18 @@ var sliderRender = (function () {
     }
     var slider = document.querySelector('.slider--hidden');
     var main = document.querySelector('main');
+
     return {
         'init': function () {
-            main.addEventListener('mouseup', function (e) {
+            main.addEventListener('click', function (e) {
+
                 if (e.target.closest('.grid__wrap') && e.target.closest('.tab--active').getAttribute('data-title') !== 'shops') {
+                    e.preventDefault();
                     var current = e.target.closest('.grid__wrap').getAttribute('data-name');
                     var title = e.target.closest('.tab--active').getAttribute('data-title');
                     sliderRender.getData(current, title);
+                } else if (e.target.closest('.grid__wrap') && e.target.closest('.tab--active').getAttribute('data-title') == 'shops') {
+                    e.preventDefault();
                 }
             })
         },
@@ -494,7 +520,7 @@ var sliderRender = (function () {
                 list.appendChild(li);
             }
             document.querySelector('.slider__wrap').appendChild(list);
-            scrollTo(document.body, document.querySelector('.slider').offsetTop - 100, 700)
+            scrollTo('.slider', 700)
             sliderRun.init();
         }
     }
@@ -661,16 +687,10 @@ if (document.querySelector('.shops')) {
     targetShopShow.init();
 }
 
-function scrollTo(element, to, duration) {
-    if (!element || !to || duration <= 0) return;
-    var difference = to - element.scrollTop;
-    var perTick = difference / duration * 10;
-
-    setTimeout(function () {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
-        scrollTo(element, to, duration - 10);
-    }, 10);
+function scrollTo(to, duration) {
+    $('html, body').animate({
+        scrollTop: $(to).offset().top
+    }, duration);
 }
 
 var sendMessage = (function () {
@@ -729,3 +749,50 @@ var sendMessage = (function () {
     }
 })();
 if (document.querySelector('.contacts__form')) sendMessage.init();
+
+
+/**
+ *
+ * Get map in section opt
+ */
+
+var getMap = (function () {
+    if (!document.querySelector('.opt__link')) return;
+    return {
+        init: function () {
+            var link = document.querySelector('.opt__link');
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                var map = document.querySelector('.opt__map');
+                if (map.classList.contains('hidden')) {
+                    var title = "Цветочная база: г. Саранск, ул. Рабочая, 189";
+                    map.classList.remove('hidden');
+                    map.classList.add('active');
+                    setTimeout(function () {
+                        mapShow.init(title, "optMap");
+                    }, 600)
+                } else if (map.classList.contains('active')){
+                    map.classList.remove('active');
+                    map.classList.add('hidden');
+                    map.firstChild.remove();
+                }
+            })
+        }
+    }
+})()
+
+if (document.querySelector('.opt__link')) {
+    getMap.init();
+}
+
+var toUp = (function () {
+    if (!document.querySelector('.up')) return;
+    return {
+        init: function () {
+            document.querySelector('.up').addEventListener('click', function (e) {
+                scrollTo('main', 800);
+            })
+        }
+    }
+})()
+if (document.querySelector('.up')) toUp.init();
